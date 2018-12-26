@@ -1,0 +1,11 @@
+@import '../../weui.wxss';
+@import '../../back_img.wxss';
+    .login_info{  
+      z-index: 999;  
+      position:absolute;  
+    }  
+    .login_form{  
+      border-radius:5px;  
+      margin-left:8%;  
+      background-color: rgba(255,255,255,0.2);  
+    }  

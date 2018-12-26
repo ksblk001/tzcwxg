@@ -1,0 +1,31 @@
+    <!--  
+    变量说明：  
+    showTopTips ： 是否显示提示信息  
+    errorMsg ： 错误信息  
+    windowHeight ：设备的窗口的高度  
+    windowWidth ： 设备的窗口的宽度  
+    account ： 账号  
+    password ：密码  
+    subPassword ：确认密码  
+    -->  
+      <view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" class="{{isback_img ? 'back_img' : ''}}">
+      </view>
+<view class="index">
+  <view class="index-hd">
+    <view class="index-desc">我的个人主页</view>
+  </view>
+  <view class="index-bd">
+    <view class="kind-list">
+      <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+        <view class="kind-list-item">
+          <navigator url="/pages/{{item.id}}/{{item.id}}" hover-class="navigator-hover">
+          <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}" bindtap='kindToggle'>
+            <view class="kind-list-text">{{item.name}}</view>
+            <image class="kind-list-img" src="../../image/{{item.id}}.png"></image>
+          </view>
+          </navigator>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

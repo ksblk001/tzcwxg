@@ -1,0 +1,10 @@
+      <view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" class="{{isback_img ? 'back_img' : ''}}">
+      </view>  
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">使用背景图片</view>
+          <view class="weui-cell__ft">
+            <switch checked="{{isback_img}}" bindchange="switch1back_img" />
+          </view>
+        </view>
+      </view>

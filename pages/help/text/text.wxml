@@ -1,0 +1,25 @@
+    <!--  
+    变量说明：  
+    showTopTips ： 是否显示提示信息  
+    errorMsg ： 错误信息  
+    windowHeight ：设备的窗口的高度  
+    windowWidth ： 设备的窗口的宽度  
+    account ： 账号  
+    password ：密码  
+    subPassword ：确认密码  
+    -->  
+
+ 
+
+<view class="index">
+  <view class="index-hd">
+    <view class="index-desc">文字查询功能介绍</view>
+  </view>
+  <view  style='position:static;width:{{windowWidth*0.9}}px;margin-left:{{windowWidth*0.05}}px;'>
+    <rich-text nodes="{{html}}" bindtap="tap"></rich-text>
+  </view>
+  <view style='position:static;width:{{windowWidth*0.9}}px;margin-left:{{windowWidth*0.05}}px;'>
+  <video src="http://sxxy-1253202980.cossh.myqcloud.com/help/text.mp4" controls></video>
+  </view>
+
+</view>

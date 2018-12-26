@@ -1,0 +1,89 @@
+    <!--  
+    变量说明：  
+    showTopTips ： 是否显示提示信息  
+    errorMsg ： 错误信息  
+    windowHeight ：设备的窗口的高度  
+    windowWidth ： 设备的窗口的宽度  
+    account ： 账号  
+    password ：密码  
+    subPassword ：确认密码  
+    -->  
+    
+<view wx:if="{{isfull}}" class="fullbg {{isfull ?'fullopacity':''}}" bindtap="hidebg"></view>
+      <view class="search-wrapper" style="height:{{windowHeight * 0.02}}px;">
+       <view class="search-panel">
+         <view class="search-section" >
+           <view class="search-button-wrapper" style="padding-left:0px;">  
+                    <view style="opacity:0.5;padding-left:8px;" bindtap="list" data-nav="2" class="{{shownavindex == 2? 'active' : ''}}">
+                        <view class="content" data-method="{{method}}">{{commit}}</view>
+                        <view class="icon"></view>
+                    </view>
+                <view style="position:absolute;" class="temp temp1 {{nzopen ? 'slidown' : 'slidup'}} {{nzshow ? 'disappear':''}}">
+                    <view bindtap='checkselect' wx:for="{{content}}" data-method="{{item[1]}}" data-commit="{{item[0]}}">
+                        {{item[0]}}
+                    </view>
+                </view>
+
+
+           </view>  
+           <view class="search-input-wrapper ">  
+             <input bindinput="bindBarcodeInput" bindconfirm="query" bindfocus="bindBarcodeFocus" bindblur="bindBarcodeBlur" class="search-input" placeholder="输入查询关键字" value="{{barcode}}" confirm-type="search" />  
+           </view>  
+           <view class="search-button-wrapper" style='width:45px;margin-left:15px;' bindtap="query">  
+             <image class="search-button" src="../../image/search.png" ></image>  
+           </view>  
+         </view>  
+       </view>  
+       <view class="search-demo" hidden="{{hiddenDropdown}}">  
+         <button wx:for="{{querylog}}" size="mini" bindtap="setDemoData" data-method="{{item[0]}}"  data-keyword="{{item[1]}}"  data-commit="{{item[2]}}">{{item[1]}}</button>
+         <button size="mini" bindtap="clear" style="margin-left:10px;">清空记录</button>  
+       </view>
+     </view>
+
+
+    <view class="page__bd">
+      <!--提示框-->
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>
+      
+
+      <!--背景图片,平铺整个界面-->
+      <view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" class="{{isback_img ? 'back_img' : ''}}">
+      </view>
+
+      <!--使用帮助tips-->
+      <view wx:if="{{showHelpTips}}" style="position:absolute;top:{{windowHeight*0.25}}px;left:{{windowWidth*0.1}}px;width:{{windowWidth*0.8}}px;color:#757575;border-radius:15px;box-shadow: 4px 4px 7px #888888;border: 1px solid #DDDDDD;font-size:{{windowWidth*0.036}}px;">
+      <text style='float:left;margin-left:15px;font-size:{{windowWidth*0.044}}px;font-weight:bold'>! ! ! tips:</text>
+      <text style='float:left;margin-left:15px;'>1、输入关键字可直接进行查询
+2、顶部左侧可选择查询方式类别
+3、点击搜索输入框弹出搜索历史记录可回查
+4、查询结果返回后，点击照片可放大预览
+5、查询结果返回后，长按信息可进行反查</text></view>
+
+
+
+      <scroll-view scroll-y="true" scroll-top="{{scrolltop}}" style="height:{{windowHeight * 0.92}}px;position:absolute;top:{{windowHeight * 0.08}}px;">
+<view wx:for="{{resultData}}" wx:for-item="myitem" wx:for-index="bindex">
+<view>{{myitem.xnxq}}</view>
+<view wx:if="{{!showHelpTips}}" class='list_title'>
+    <text class='list_item_name'>课程名称</text>
+    <text class='list_item_name'>成绩</text>
+</view>
+<view class='list_item' wx:for='{{myitem.kclist}}' wx:key='this' catchtap='mylistItemTap' data-index='{{index}}' data-parentindex='{{parentIndex}}' data-bindex="{{bindex}}">
+    <view class='list_item_name_box' >
+        <text class='list_item_name'>{{item.kcmc}}</text>
+        <text class='list_item_name'>{{item.kccj}}</text>
+        <image src='/image/down.png' class='icon_down {{item.show&&"icon_down_rotate"}}'></image>
+    </view>
+    <view class='other_box' wx:if='{{item.show}}'>
+        <view wx:for='{{item.mylist}}'>
+            <view class='other'>
+                <text class='other_title'>{{item.title}}：</text>
+                <text class='other_text'>{{item.content}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+</view>
+      </scroll-view>
+    </view>  

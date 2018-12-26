@@ -1,0 +1,188 @@
+@import '../../weui.wxss';
+@import '../../back_img.wxss';
+    .login_info{  
+      z-index: 999;  
+      position:absolute;  
+    }  
+    .login_form{  
+      border-radius:5px;  
+      margin-left:8%;  
+      background-color: rgba(255,255,255,0.2);  
+    }  
+
+
+    .search-wrapper {  
+      position: fixed;/*悬停搜索框的关键样式*/  
+      top: 0px;  
+      left: 0;  
+      width: 100%;  
+      z-index: 1000;  
+    }  
+      
+    .search-panel {  
+       border-radius:6px;
+       border-bottom: 0px solid #b1b3b4;
+       box-shadow: 2px 2px 5px #aaaaaa;
+    }  
+      
+    .search-section {  
+      padding: 5px 0px;  
+      display: flex;  
+      flex-direction: row;  
+    }  
+      
+    .search-demo {  
+      padding: 5px;  
+      flex-direction: row;  
+      background-color: #eee;  
+      padding-left:42px;     
+      align-items: flex-start;  
+    }  
+      
+    .search-input-wrapper {  
+      flex: 8;  
+      padding: 2px;  
+      background-color: #eee;  
+      border-radius: 3px;  
+    }  
+      
+    .search-input {
+      padding-top: 3px;
+    }  
+      
+    .search-clear {  
+      float: right;  
+      width: 32px;  
+      height: 25px;  
+      z-index: 998;  
+    }  
+      
+    .search-button-wrapper {  
+      padding-left: 5px;  
+      padding-right: 5px;  
+      padding-top:5px;   
+    }  
+      
+    .search-button {  
+      flex: 1;  
+      border: none !important;  
+      color: white !important;  
+      width: 20px;  
+      height: 20px;  
+    }  
+
+
+
+.page{
+    font-family: 'PingFang SC', 'Helvetica Neue', Helvetica, 'Droid Sans Fallback', 'Microsoft Yahei', sans-serif;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+.nav{
+    position: relative;
+    z-index: 99;
+    display: flex;
+    border-top: 1px solid #d1d3d4;
+    border-bottom: 1px solid #d1d3d4;
+    background: #fff;
+}
+.nav-son{
+    display: flex;
+    flex: 1;
+    text-align: center;
+    height: 40px;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+}
+.borders{
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+}
+.content{
+    display: inline-block;
+}
+.icon{
+    display: inline-block;
+    border: 4px solid transparent;
+    border-top: 4px solid #9b9b9b;
+    margin-left: 5px;
+}
+.temp{
+    position: relative;
+    z-index: 4;
+}
+.temp1{
+    display: none;
+    width: 100%;
+    max-height: 550rpx;
+    overflow-y: scroll;
+    padding: 0 0 0 20rpx;
+    line-height:100rpx;
+    background: #fff;
+}
+.temp2{
+    display: none;
+    width: 100%;
+    max-height: 750rpx;
+    overflow-y: scroll;
+    padding: 0 0 0 20rpx;
+    line-height:100rpx;
+    background: #fff;
+}
+.slidedown{
+    transform:  translateY(0%);
+}
+.temp view{
+    border-bottom: 1px solid #d1d3d4;
+    font-size: 14px;
+    color: #666;
+}
+.fullbg{
+    position: fixed;
+    top:0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgb(1, 1, 1);
+    transition: all 2s;
+    opacity: 0;
+}
+.fullopacity{
+    opacity: .5;
+}
+.active .content{
+    color: #09ba07;
+}
+.active .icon{
+    border-bottom: 4px solid #09ba07;
+    border-top:0;
+}
+@keyframes slidown{
+    from{
+        transform:  translateY(-140%);
+    }
+    to{
+        transform:  translateY(0%);
+    }
+}
+.slidown{
+    display: block;
+    animation: slidown .4s ease-in both;
+}
+@keyframes slidup{
+    from{
+        transform:  translateY(0%);
+    }
+    to{
+        transform:  translateY(-140%);
+    }
+}
+.slidup{
+    display: block;
+    animation: slidup .4s ease-in both;
+}
+.disappear{
+    display: none;
+}

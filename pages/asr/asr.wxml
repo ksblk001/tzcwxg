@@ -1,0 +1,76 @@
+    <!--  
+    变量说明：  
+    showTopTips ： 是否显示提示信息  
+    errorMsg ： 错误信息  
+    windowHeight ：设备的窗口的高度  
+    windowWidth ： 设备的窗口的宽度  
+    account ： 账号  
+    password ：密码  
+    subPassword ：确认密码  
+    -->  
+    <view class="page__bd">
+    
+      <!--顶部提示框-->
+      <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">{{errorMsg}}</view>      
+      <view style="height: {{windowHeight}}px; width: {{windowWidth}}px;" class="{{isback_img ? 'back_img' : ''}}">
+      </view>
+      
+      <!--使用帮助tips-->
+      <view wx:if="{{showHelpTips}}" style="position:absolute;top:{{windowHeight*0.5}}px;left:{{windowWidth*0.15}}px;width:{{windowWidth*0.7}}px;color:#757575;border-radius:15px;box-shadow: 4px 4px 7px #888888;border: 1px solid #DDDDDD;font-size:{{windowWidth*0.036}}px;">
+      <text style='font-size:{{windowWidth*0.044}}px;font-weight:bold'>　! ! ! tips:</text>
+      <text>
+　1、按住下方图标开始说话录音
+　2、松开手指开始语音识别查询
+　3、录音过程中上滑取消录音
+　4、查询结束后，长按信息可进行反查</text></view>
+      <scroll-view scroll-y="true" scroll-top="{{scrolltop}}" style="height:{{windowHeight*0.99}}px;position:absolute;top:{{windowHeight*0.01}}px;">
+    <!--一位学生信息-->
+    <view style="position:static;" wx:for="{{outputTxt}}" wx:for-item="stu">
+            <view class="weui-cell__hd" sytle="width: {{windowWidth}}px;text-align:center;margin-left:auto;">  
+                <view style="position:relative;width: {{windowWidth}}px;border-right:2rpx solid #E9E9E9;text-align:center;margin-left:auto;margin-bottom:10px;">当前第{{index+1}}条记录——共{{outputTxt.length}}条</view>  
+            </view> 
+      <!--圆形图-->
+      <view style="top:{{windowHeight * 0.06}}px;">
+        <image src="{{stu.zp}}" data-src="{{stu.zp}}" bindtap="previewImage" mode="aspectFill" style="width: {{windowWidth * 0.4}}px;height:{{windowWidth * 0.4}}px; margin-left:{{windowWidth * 0.5 - 80}}px;border-radius:{{windowWidth * 0.2}}px;box-shadow: 4px 4px 7px #888888;"></image>  
+      </view>
+      <!--列表开始-->
+        <view class="login_info" style="position:static;top:{{windowHeight * 0.35}}px;width: {{windowWidth * 0.96}}px;">  
+          <view class="weui-cells weui-cells_after-title login_form">  
+
+          <view wx:for="{{stu.content}}" wx:for-item="mycontent" >
+
+            <!--每一块信息的大框架-->
+            <view wx:if="{{mycontent.myinfo.length>0}}" style="border:3rpx solid #C9C9C9;box-shadow: 3px 3px 5px #888888;">
+              <view wx:if="{{mycontent.myinfo.length>0}}" style="font-size:20px;font-weight:bold;color:#000000;position:relative;width: {{windowWidth}}px;border-right:5rpx solid #E9E9E9;text-align:center;margin-left:-30px;margin-top:4px;">{{mycontent.title}}-点击学号查询成绩</view>
+                <view wx:for="{{mycontent.myinfo}}" wx:for-item="stuinfo" data-method="{{stuinfo[0]}}" data-keyword="{{stuinfo[2]}}" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindlongtap="bingLongTap" bindtap="bindTap" class="weui-cell weui-cell_input">  
+                <view class="weui-cell__hd">  
+                  <view class="weui-label" style="border-right:2rpx solid #E9E9E9;" data-method="{{stuinfo[0]}}" data-keyword="{{stuinfo[2]}}">{{stuinfo[1]}}：</view>  
+                </view>  
+                <view class="weui-cell__hd">  
+                  <view style="margin-left:6px;margin-top:6px;margin-bottom:6px;" data-method="{{stuinfo[0]}}" data-keyword="{{stuinfo[2]}}">{{stuinfo[2]}}</view>
+                </view>  
+              </view> 
+            </view>
+            <view wx:if="{{mycontent.myinfo.length>0}}" style="height:10px;"></view>
+            <view wx:if="{{mycontent.myinfo.length>0}}" style="height:1px;background:#bbb;"></view>
+            <view wx:if="{{mycontent.myinfo.length>0}}" style="height:5px;"></view>
+          </view>
+          
+          </view>  
+        </view>
+        <view style="height:35px;"></view>
+        <view style="height:3px;background:#bbb;"></view>
+        <view style="height:35px;"></view>
+    </view>
+      </scroll-view>
+
+
+
+
+
+
+
+      <view style="position:absolute;top:{{windowHeight * 0.87}}px;">  
+        <image bindtouchstart="touchdown" bindtouchend="touchup" bindtouchmove="touchmove" src="../../image/recoder.jpg" mode="aspectFill" style="width: {{windowWidth * 0.16}}px;height:{{windowWidth * 0.16}}px; margin-left:{{windowWidth * 0.42}}px;border-radius:{{windowWidth * 0.2}}px;box-shadow: 3px 2px 7px #888888;"></image>  
+      </view>
+    </view>  

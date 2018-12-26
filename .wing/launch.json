@@ -1,0 +1,12 @@
+{
+    "version": "1.02.1804120",
+    "configurations": [
+        {
+            "name": "附加到 Chrome 进程",
+            "type": "chrome",
+            "request": "attach",
+            "port": 9222,
+            "webRoot": "${workspaceRoot}"
+        }
+    ]
+}

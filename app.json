@@ -1,0 +1,62 @@
+{
+  "pages": [
+    "pages/asr/asr",
+    "pages/help/signup/signup",
+    "pages/help/text/text",
+    "pages/help/asr/asr",
+    "pages/help/face/face",
+    "pages/cha/cha",
+    "pages/face/face",
+    "pages/signup/signup",
+    "pages/cjc/cjc",
+    "pages/help/help",
+    "pages/my/my",
+    "pages/settings/settings",
+    "pages/clear/clear"
+  ],
+  "window": {
+    "backgroundTextStyle": "black",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "台院智慧学工",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F8F8F8",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "list": [
+      {
+        "pagePath": "pages/cha/cha",
+        "iconPath": "image/text.png",
+        "selectedIconPath": "image/text_HL.png",
+        "text": "文字查询"
+      },
+      {
+        "pagePath": "pages/asr/asr",
+        "iconPath": "image/asr.png",
+        "selectedIconPath": "image/asr_HL.png",
+        "text": "语音查询"
+      },
+      {
+        "pagePath": "pages/face/face",
+        "iconPath": "image/face.png",
+        "selectedIconPath": "image/face_HL.png",
+        "text": "人脸识别"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my_HL.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 60000
+  }
+}
