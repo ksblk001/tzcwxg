@@ -255,6 +255,7 @@ function requestStuInfo(method, keyword, self) {
     success: function (res) {
       self.setData({ editImage: "../../image/edit.png", isEdit:false })
       var result = res.data;
+      console.log(result);
       if (typeof (result.error_code) == "undefined") {
         var data = result.students;
         //var jsonData = JSON.stringify(data);

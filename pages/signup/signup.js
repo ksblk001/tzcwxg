@@ -5,7 +5,7 @@ Page({
   data: {
     showTopTips: false,
     errorMsg: "",
-    xybm: { 'xym': ['人文学院', '商学院', '外国语学院', '电信学院', '生命学院', '医化学院', '艺术与设计学院', '教室教育学院', '航空工程学院', '建筑工程学院', '医学院'], 'xydh': ['rwxy', 'sxy', 'wgyxy', 'dxxy', 'smxy', 'yhxy', 'ysxy', 'jsjyxy', 'hkgcxy', 'jzgcxy', 'yxy']},
+    xybm: { 'xym': ['人文学院', '商学院', '外国语学院', '电信学院', '生命学院', '医化学院', '艺术与设计学院', '教师教育学院', '航空工程学院', '建筑工程学院', '医学院', '学工部'], 'xydh': ['rwxy', 'sxy', 'wgyxy', 'dxxy', 'smxy', 'yhxy', 'ysxy', 'jsjyxy', 'hkgcxy', 'jzgcxy', 'yxy' ,'xgb']},
     zcxybm:'',
 
     barcode: "",
@@ -41,14 +41,21 @@ Page({
 
   formSubmit: function (e) {
     // form 表单取值，格式 e.detail.value.name(name为input中自定义name值) ；使用条件：需通过<form bindsubmit="formSubmit">与<button formType="submit">一起使用  
+    var that = this;
+    var zcxybm=that.data.zcxybm;
     var account = e.detail.value.account;
     var password = e.detail.value.password;
     var phonenumber = e.detail.value.phonenumber;
-    var that = this;
     var openid = wx.getStorageSync('openid');
     console.log('否为空');
     util.clearError(that);
     // 判断账号是否为空和判断该账号名是否被注册  
+
+    if ("" == util.trim(account)) {
+      util.isError("账号不能为空", that);
+      return;
+    }
+
     if ("" == util.trim(account)) {
       util.isError("账号不能为空", that);
       return;
@@ -90,7 +97,7 @@ Page({
                 util.isError(res.data.msg, that);
                 break;
               case 'errorname':
-                util.isError("用户名、密码、手机号码不匹配，请联系管理员！", that);
+                util.isError(res.data.msg, that);
                 break;
               case 'success':
                 wx.showModal({
