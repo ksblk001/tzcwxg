@@ -166,7 +166,7 @@ App({
   },
 
   globalData:{
-    url: 'https://tzc.tzxy.xyz',
+    url: 'https://zhxg.tzc.edu.cn',
     quitflag:false,
     isback_img:false,
     windowHeight: 0,

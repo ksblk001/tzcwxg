@@ -5,7 +5,7 @@
     "pages/help/text/text",
     "pages/help/asr/asr",
     "pages/help/face/face",
-    "pages/cha/cha",
+    "pages/text/text",
     "pages/face/face",
     "pages/signup/signup",
     "pages/cjc/cjc",
@@ -15,9 +15,9 @@
     "pages/clear/clear"
   ],
   "window": {
-    "backgroundTextStyle": "black",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "台院智慧学工",
+    "navigationBarTitleText": "台院微学工",
     "navigationBarTextStyle": "black",
     "backgroundColor": "#F8F8F8",
     "enablePullDownRefresh": false
@@ -28,7 +28,7 @@
     "backgroundColor": "#FFFFFF",
     "list": [
       {
-        "pagePath": "pages/cha/cha",
+        "pagePath": "pages/text/text",
         "iconPath": "image/text.png",
         "selectedIconPath": "image/text_HL.png",
         "text": "文字查询"

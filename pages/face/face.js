@@ -100,7 +100,6 @@ Page({
           processFileUploadForFace(url + '/admin/pub/faceapi.html', tempFilePaths[0], that);
         }
       })
-
     } else {
       console.log('长按');
       wx.chooseImage({

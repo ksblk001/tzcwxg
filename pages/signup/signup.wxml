@@ -32,7 +32,7 @@
                 </view>
                 <view class="weui-cell__bd">
                   <picker bindchange="bindPickerChange" value="{{index}}" range="{{xybm.xym}}">
-                    <view class="weui-input">{{xybm.xym[index]}}</view>
+                    <view class="weui-input">当前选择：{{xybm.xym[index]}}</view>
                   </picker>
                 </view>
               </view>
